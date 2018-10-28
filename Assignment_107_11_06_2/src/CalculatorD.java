@@ -8,6 +8,7 @@ public class CalculatorD {
 	}
 
 	public int multiply(int a1, int a2) {
+		System.out.println("Called using a method reference");
 		// Call the lambda function
 		IntegerMath multiplication = (a, b) -> a1 * a2;
 		return operateBinary(a1, a2, multiplication);
@@ -21,7 +22,7 @@ public class CalculatorD {
 		// Create a new instance of the calculator class
 		CalculatorD myApp = new CalculatorD();
 
-		// Print out the results
+		// Call multiply and print out the results
 		System.out.println("20 * 10 = " + myApp.multiply(20, 10));
 	}
 }
