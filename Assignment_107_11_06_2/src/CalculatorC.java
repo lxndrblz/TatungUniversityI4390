@@ -13,7 +13,7 @@ public class CalculatorC implements IntegerMath{
 
 
 	public static int multiply(int a, int b) {
-		System.out.println("Method in the Calculator class2");
+		System.out.println("Method in the Calculator class");
 		return a * b;
 	}
 
@@ -22,7 +22,7 @@ public class CalculatorC implements IntegerMath{
 	}
 
 	public static void main(String... args) {
-		// Invoke operateBinary using a lambda expression
+		// Invoke multiply using a lambda expression
 		IntegerMath multiplication = (a,b) -> multiply(a,b);
 		// Print out the results
 		System.out.println("20 * 10 = " + multiplication.operateBinary(20, 10));
