@@ -5,6 +5,8 @@ public class DemoDeckOfCard {
 
 	public static void main(String[] args) {
 		DeckOfCard deckOfCard = new DeckOfCard();
+		// Print deck before shuffling the cards
+		deckOfCard.printDeck();
 		// Shuffle the cards 
 		deckOfCard.shuffle();
 		// Print the Current Deck

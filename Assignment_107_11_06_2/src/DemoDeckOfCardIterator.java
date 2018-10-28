@@ -6,6 +6,8 @@ public class DemoDeckOfCardIterator {
 
 	public static void main(String[] args) {
 		DeckOfCardIterator deckOfCardIterator = new DeckOfCardIterator();
+		// Print the Current Deck
+		deckOfCardIterator.printDeck();
 		// Shuffle the cards 
 		deckOfCardIterator.shuffle();
 		// Print the Current Deck

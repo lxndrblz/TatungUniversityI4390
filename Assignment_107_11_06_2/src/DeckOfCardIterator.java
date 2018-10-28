@@ -15,9 +15,11 @@ import java.util.Collections;
 
 public class DeckOfCardIterator {
 	private final static int SIZE = 52;
-
+	
 	// Interface Definition for GameCardIterator
 	interface GameCardIterator extends java.util.Iterator<Card> {
+
+		Card last();
 	}
 
 	// ArrayList for storing all the cards of the deck
@@ -36,7 +38,7 @@ public class DeckOfCardIterator {
 
 	// Implementation of interface
 	protected class CardIterator implements GameCardIterator {
-		// Start stepping through the array from the beginning
+		// Start stepping through the array from the top
 		private int nextIndex = 0;
 
 		public boolean hasNext() {
@@ -48,6 +50,16 @@ public class DeckOfCardIterator {
 			// Avoid out of index problems
 			if (hasNext()) {
 				Card retValue = deck.get(nextIndex);
+				// Get the next even element
+				nextIndex += 1;
+				return retValue;
+			}
+			return null;
+		}
+		public Card last() {
+			// Avoid out of index problems
+			if (hasNext()) {
+				Card retValue = deck.get(deck.size() -1);
 				// Get the next even element
 				nextIndex += 1;
 				return retValue;
@@ -109,10 +121,11 @@ public class DeckOfCardIterator {
 
 	// Takes the last card of the deck and returns it
 	public Card deal() {
+		GameCardIterator iterator = this.new CardIterator();
 		Card card = null;
 		// make sure there are still cards left
-		if (deck.size() > 0) {
-			card = deck.get(deck.size() - 1);
+		if (iterator.hasNext()) {
+			card = iterator.last();
 			deck.remove(card);
 		}
 		return card;
@@ -120,8 +133,9 @@ public class DeckOfCardIterator {
 
 	// Prints all existing cards in the deck
 	public void printDeck() {
-		// Print out values of even indices of the array
 		GameCardIterator iterator = this.new CardIterator();
+		System.out.format("Cards in stack: %d \n", deck.size());
+		// Print out values of even indices of the array
 		while (iterator.hasNext()) {
 			iterator.next().print_face_suit();
 		}
