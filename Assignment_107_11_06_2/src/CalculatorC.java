@@ -6,26 +6,25 @@
  * This lambda expression should call the method multiple to
  * compute multiplication.
  */
-public class CalculatorC {
-	interface IntegerMath {
-		int operation(int a, int b);
-	}
+interface IntegerMath {
+	int operateBinary(int a, int b);
+}
+public class CalculatorC implements IntegerMath{
 
-	public int multiply(int a, int b) {
-		System.out.println("Method in the Calculator class");
+
+	public static int multiply(int a, int b) {
+		System.out.println("Method in the Calculator class2");
 		return a * b;
 	}
 
-	public int operateBinary(int a, int b, IntegerMath op) {
+	public int operateBinary(int a, int b) {
 		return multiply(a, b);
 	}
 
 	public static void main(String... args) {
-		// Create a new instance of the calculator class
-		CalculatorC myApp = new CalculatorC();
-		// Call the lambda function
-		IntegerMath multiplication = (a, b) -> a * b;
+		// Invoke operateBinary using a lambda expression
+		IntegerMath multiplication = (a,b) -> multiply(a,b);
 		// Print out the results
-		System.out.println("20 * 10 = " + myApp.operateBinary(0, 10, multiplication));
+		System.out.println("20 * 10 = " + multiplication.operateBinary(20, 10));
 	}
 }
