@@ -7,45 +7,23 @@ public class CalculatorB {
 	interface IntegerMath {
 		int operation(int a, int b);
 	}
-	static class Multiplication implements IntegerMath{
-		private int a, b;
-		
-		Multiplication(int a, int b){
-			this.a=a;
-			this.b=b;
-		}
-		
-		public int getA() {
-			return a;
-		}
-		public void setA(int a) {
-			this.a = a;
-		}
-		public int getB() {
-			return b;
-		}
-		public void setB(int b) {
-			this.b = b;
-		}
 
-		@Override
-		public int operation(int a, int b) {
-			System.out.println("Invoked by anonymous class");
-			return a*b;
-		}
-	}
-
-	public int operateBinary(Multiplication m) {
-		return m.operation(m.a,m.b);
+	public int operateBinary(int a, int b, IntegerMath m) {
+		return m.operation(a, b);
 	}
 
 	public static void main(String... args) {
 		// Create a new instance of the calculator class
 		CalculatorB myApp = new CalculatorB();
-		// Create a new instance of the multiplication Class
-		Multiplication multiplication = new Multiplication(20,10);
+
 		// Pass the multiplication as an argument and print out the results
-		System.out.println("20 * 10 = " + myApp.operateBinary(multiplication));
+		System.out.println("20 * 10 = " + myApp.operateBinary(30, 10, new IntegerMath() {
+			public int operation(int a, int b) {
+				// Print out the invoke comment
+				System.out.println("Invoke by anonymous class");
+				return a * b;
+			}
+		}));
 
 	}
 }
