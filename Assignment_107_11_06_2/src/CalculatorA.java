@@ -29,7 +29,7 @@ public class CalculatorA {
 	}
 
 	public int operateBinary(int a, int b, IntegerMath op) {
-		System.out.println("Invoked by lambda expression");
+		System.out.println("Invoke by lambda expression");
 		return op.operation(a, b);
 	}
 

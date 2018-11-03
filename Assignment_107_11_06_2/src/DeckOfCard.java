@@ -28,8 +28,8 @@ public class DeckOfCard {
 	}
 
 	protected static class Card {
-		private Face face = Face.Ace;
-		private Suit suit = Suit.Clubs;
+		private Face face;
+		private Suit suit;
 
 		// Getter for face variable
 		public Face getFace() {
