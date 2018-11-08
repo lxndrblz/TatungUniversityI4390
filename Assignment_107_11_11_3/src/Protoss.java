@@ -1,21 +1,21 @@
 /**
  * @author alexanderbilz
  *
- * This class represents the Protoss Alien race
+ *         This class represents the Protoss Alien race
  */
-public class Protoss implements bloodLevel{
+public class Protoss implements bloodLevel {
 
 	private float bloodLevel;
-	
+
 	@Override
+	// Method for setting the bloodlevel
 	public void setBloodLevel(float bloodLevel) {
-		// TODO Auto-generated method stub
 		this.bloodLevel = bloodLevel;
 	}
 
 	@Override
+	// Method for retrieving the bloodlevel
 	public float getBloodLevel() {
-		// TODO Auto-generated method stub
 		return bloodLevel;
 	}
 
